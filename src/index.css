@@ -1,0 +1,164 @@
+:root {
+  --color__bg: #edce9c;
+  --color__primary: #e45438;
+  --color__cta: #d8433a;
+  --color__cta--darker: #c23c34;
+  --color__secondary: #e37f32;
+  --color__secondary--darker: #cc722d;
+}
+
+body,
+html,
+#root,
+.diceApp {
+  min-height: 100vh;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 2rem;
+  line-height: 3rem;
+  font-family: "Smokum", cursive;
+  background: var(--color__bg);
+  letter-spacing: 3px;
+}
+
+.diceApp {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.diceApp__wrapper {
+  padding: 2rem;
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.diceApp__dice {
+  font-size: 6rem;
+  line-height: 6rem;
+  display: inline-block;
+  color: #3f3f3f;
+}
+
+.diceApp__dice:only-child {
+  font-size: 10rem;
+  line-height: 10rem;
+}
+
+.diceApp__dice:not(:last-child) {
+  padding-right: 1rem;
+}
+
+.diceApp__heading {
+  font-weight: 600;
+  color: var(--color__primary);
+  font-size: 10rem;
+  line-height: 12rem;
+  margin: 0;
+  padding-bottom: 3rem;
+}
+
+.diceApp__button {
+  border: none;
+  margin: 0;
+  padding: 0;
+  width: auto;
+  overflow: visible;
+
+  background: transparent;
+
+  /* inherit font & color from ancestor */
+  color: inherit;
+
+  /* Corrects font smoothing for webkit */
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  /* Corrects inability to style clickable `input` types in iOS */
+  -webkit-appearance: none;
+  font: inherit;
+  font-size: 4rem;
+  line-height: 4rem;
+  font-weight: 600;
+}
+
+.diceApp__button:focus,
+.diceApp__button::-moz-focus-inner {
+  border: 0;
+  outline: 0;
+}
+
+.diceApp__button:not(:last-child) {
+  margin-right: 2rem;
+}
+
+.button {
+  color: var(--color__bg);
+  background: var(--color__secondary);
+  padding: 1rem 2rem;
+  cursor: pointer;
+  transition: background 0.2s ease-out;
+}
+
+.button:hover,
+.button:active {
+  background: var(--color__secondary--darker);
+}
+
+.button--primary {
+  background: var(--color__cta);
+  color: var(--color__bg);
+  display: block;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.button--primary:hover,
+.button--primary:active {
+  background: var(--color__cta--darker);
+}
+
+.diceApp__container--primary {
+  padding-bottom: 3rem;
+}
+
+.diceApp__divider {
+  margin: 2rem 0.5rem;
+  border: 0.2rem solid var(--color__cta);
+  border-width: 0.2rem;
+  height: 0;
+}
+
+.diceApp__link,
+.diceApp__link:visited {
+  font-weight: 400;
+  letter-spacing: 0;
+  font-weight: 600;
+  font-size: 3rem;
+  text-decoration: none;
+  color: var(--color__primary);
+  padding-bottom: 0.2rem;
+}
+
+@media screen and (max-width: 568px) {
+  html {
+    font-size: 0.75rem;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  html {
+    font-size: 0.65rem;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  html {
+    font-size: 0.55rem;
+  }
+}
