@@ -1,4 +1,4 @@
-#useGameDice custom hook example
+# useGameDice custom hook example
 
 Install the app with `yarn install`
 
