@@ -1,3 +1,5 @@
+#useGameDice custom hook example
+
 Install the app with `yarn install`
 
 Run the app locally with `yarn start`
