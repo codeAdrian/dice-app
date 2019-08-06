@@ -1,5 +1,14 @@
 import React, { useCallback } from "react";
 import { useGameDice } from "./useGameDice";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faDiceOne,
+  faDiceTwo,
+  faDiceThree,
+  faDiceFour,
+  faDiceFive,
+  faDiceSix
+} from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [state, api] = useGameDice(5);
@@ -8,19 +17,28 @@ function App() {
   const getDiceClassName = useCallback(value => {
     switch (value) {
       case 1:
-        return "diceApp__dice fas fa-dice-one";
+        return faDiceOne;
       case 2:
-        return "diceApp__dice fas fa-dice-two";
+        return faDiceTwo;
       case 3:
-        return "diceApp__dice fas fa-dice-three";
+        return faDiceThree;
       case 4:
-        return "diceApp__dice fas fa-dice-four";
+        return faDiceFour;
       case 5:
-        return "diceApp__dice fas fa-dice-five";
+        return faDiceFive;
       default:
-        return "diceApp__dice fas fa-dice-six";
+        return faDiceSix;
     }
   }, []);
+
+  const handleNumberOfDiceClick = useCallback(
+    event => {
+      const { value } = event.currentTarget || event.srcElement;
+      const numValue = value && parseInt(value);
+      numValue && api.setNumberOfDice(numValue);
+    },
+    [api]
+  );
 
   return (
     <section className="diceApp">
@@ -29,10 +47,13 @@ function App() {
         <article className="diceApp__container diceApp__container--primary">
           {diceValue &&
             diceValue.map((value, index) => (
-              <i key={`dice-${index}`} className={getDiceClassName(value)} />
+              <FontAwesomeIcon
+                key={`dice-${index}`}
+                className="diceApp__dice"
+                icon={getDiceClassName(value)}
+              />
             ))}
         </article>
-
         <article className="diceApp__container diceApp__container--secondary">
           <button
             className="button diceApp__button button--primary"
@@ -44,15 +65,14 @@ function App() {
             <strong>Reset </strong>
           </button>
           <button
+            value={`${numberOfDice === 1 ? 5 : 1}`}
             className="button button__icon  diceApp__button"
-            onClick={() => api.setNumberOfDice(numberOfDice === 1 ? 5 : 1)}
+            onClick={handleNumberOfDiceClick}
           >
             <strong>{numberOfDice === 1 ? 5 : 1} x Dice</strong>
           </button>
         </article>
-
         <hr className="diceApp__divider" />
-
         <a
           className="diceApp__link"
           href="https://codeAdrian.github.io"
